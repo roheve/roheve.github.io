@@ -8,4 +8,6 @@ tags: [test, first post]
 
 This is my first non-test post after configuring and testing my new Jekyll setup. This time setting it all up was easy, I just followed the examples in and read some of the documentation.
 
-It is actually my second try, my first try was many years ago, that ended not well, because then of the installation process was not that easy, and a had steap learning curve to actually use.
+It is actually my second try, my first try was many years ago, that ended not well, because then the installation process was not that easy, and a had steap learning curve to actually use.
+
+The instructions of the [Chirpy theme Demo site](https://github.com/cotes2020/jekyll-theme-chirpy) was clear enough.
