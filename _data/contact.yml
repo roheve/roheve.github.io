@@ -25,11 +25,11 @@
 #   icon: 'fab fa-stack-overflow'
 #   url:  ''                  # Fill with your stackoverflow homepage
 -
-  type: keybase"
+  type: keybase
   icon: 'fab fa-keybase'
   url:  'https://keybase.io/roheve'
 -
-  type: telegram"
+  type: telegram
   icon: 'fab fa-telegram'
   url:  'https://t.me/roheve'
 -
