@@ -1,8 +1,8 @@
 ---
-title: First Post B
-date: 2022-06-02 21:00:00 -0200
+title: Lorem Ipsum
+date: 2022-06-05 16:00:00 -0200
 categories: [testing]
-tags: [test, test 2]
+tags: [test, lorem ipsum]
 ---
 ## Lorem Ipsum
 
