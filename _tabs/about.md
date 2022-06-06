@@ -3,7 +3,9 @@ title: About
 icon: fas fa-info-circle
 order: 4
 ---
-## Hello World!
+## Roels Praathoek Jekyll Experiment
 
-> Add Markdown syntax content to file `_tabs/about.md`{: .filepath } and it will show up on this page.
-{: .prompt-tip }
+This site is for me to learn using jekyll by experimenting with it.
+
+I will try to use it as my notebook and see what happens.
+
