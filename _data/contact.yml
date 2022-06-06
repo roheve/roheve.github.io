@@ -3,17 +3,13 @@
 -
   type: github
   icon: 'fab fa-github'
--
-  type: twitter
-  icon: 'fab fa-twitter'
--
-  type: email
-  icon: 'fas fa-envelope'
-  noblank: true            # open link in current tab
--
-  type: rss
-  icon: 'fas fa-rss'
-  noblank: true
+# -
+#   type: twitter
+#   icon: 'fab fa-twitter'
+# -
+#   type: email
+#   icon: 'fas fa-envelope'
+#   noblank: true            # open link in current tab
 
 # Uncomment and complete the url below to enable more contact options
 # -
@@ -23,8 +19,20 @@
 # -
 #   type: linkedin
 #   icon: 'fab fa-linkedin'   # icons powered by <https://fontawesome.com/>
-#   url:  ''                  # Fill with your Linkedin homepage
+#   url:  'https://www.linkedin.com/in/roheve'                  # Fill with your Linkedin homepage
 # -
 #   type: stack-overflow
 #   icon: 'fab fa-stack-overflow'
 #   url:  ''                  # Fill with your stackoverflow homepage
+-
+  type: keybase"
+  icon: 'fab fa-keybase'
+  url:  'https://keybase.io/roheve'
+-
+  type: telegram"
+  icon: 'fab fa-telegram'
+  url:  'https://t.me/roheve'
+-
+  type: rss
+  icon: 'fas fa-rss'
+  noblank: true

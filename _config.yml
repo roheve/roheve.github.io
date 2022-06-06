@@ -41,16 +41,16 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Roelof Heuvel
-  email: roelof@example.com             # change to your email address
+  # email: roelof@example.com             # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/roheve_nl     # change to your twitter homepage
     - https://github.com/roheve         # change to your github homepage
+    - https://twitter.com/roheve_nl     # change to your twitter homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
     # - https://www.linkedin.com/in/username
 
-google_site_verification:      '12345678901234567890'         # fill in to your verification string
+google_site_verification:    # fill in to your verification string
 
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
