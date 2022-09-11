@@ -1,6 +1,6 @@
 ---
 title: Using Azure Managed Identity
-date: 2022-09-11 12:00:00 -0200
+date: 2022-09-10 12:00:00 -0200
 categories: [devops]
 tags: [identity, azure]
 ---
