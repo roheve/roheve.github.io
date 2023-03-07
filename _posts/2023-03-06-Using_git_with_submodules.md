@@ -10,6 +10,6 @@ I use scripts in puppet modules, but want to keep my scripts in seperate reposot
 
 For now the link on how to use git submodules [Git Tools - Submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules "2nd Edition ")
 
-So far, I have not found anything special fin the puppet docs about this, so I need to just test it.
+So far, I have not found anything special fin the puppet docs about this, so I need to just test it. Mayby the [puppet documentation for codemanager](https://www.puppet.com/docs/pe/2019.8/add_content.html "puppet docs") will tell me more, but I do not manage that part of our setup,
 
 
