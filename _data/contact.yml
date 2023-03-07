@@ -28,10 +28,10 @@
   type: keybase
   icon: 'fab fa-keybase'
   url:  'https://keybase.io/roheve'
--
-  type: telegram
-  icon: 'fab fa-telegram'
-  url:  'https://t.me/roheve'
+# -
+#   type: telegram
+#   icon: 'fab fa-telegram'
+#   url:  'https://t.me/roheve'
 -
   type: rss
   icon: 'fas fa-rss'
