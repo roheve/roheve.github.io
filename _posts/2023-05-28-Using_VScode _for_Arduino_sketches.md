@@ -12,11 +12,11 @@ My PC at home (for personal use, not my work laptop) is running ubuntu linux and
 
 Because I did not wanted to invent the wheel again, I found [instructions](https://www.circuitstate.com/tutorials/how-to-use-vs-code-for-creating-and-uploading-arduino-sketches/ "it is not that old"), some of which I already did, and some new pointers.
 
-but first, make sure git is operastional
+but first, make sure git is operational
 ``` sh
 sudo apt install git
-git config --global user.name "Roelof"
-git config --global user.email "roelof@roheve.nl
+git config --global user.name "my"
+git config --global user.email "me@roheve.nl
 ```
 
 Then install vscode. 
