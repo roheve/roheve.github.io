@@ -16,6 +16,28 @@ For now i use a spare rpi2 rev 1.1 (that is the last rpi version that does not s
 
 While doing that, my webserer on the rpi3 stays operational.
 
+### Preparing the rpi2
+
+Prepare an SD card with the latest raspi-os 32 bit version and the lite version, as this will be a headless deployment, and update it with the latest packages, give it a host name, a login account and enable ssh.
+
+```bash
+sudo apt update
+sudo apt upgrade
+sudo raspi-config
+sudo reboot
+```
+
+then install the packages needed for the webserver
+
+```bash
+sudo apt install nginx
+sudo apt install letsencrypt
+sudo apt install php-fpm
+```
+
+This will install nginx 1.22 with php version 8.2 from the os repository, good enough for now.
+
+
 (to be continued...)
 
 ...
