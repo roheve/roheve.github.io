@@ -37,7 +37,6 @@ sudo apt install php-fpm
 
 This will install nginx 1.22 with php version 8.2 from the os repository, good enough for now.
 
-
 (to be continued...)
 
 ...
