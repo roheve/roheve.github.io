@@ -23,7 +23,9 @@ Prepare an SD card with the latest raspi-os 32 bit version and the lite version,
 ```bash
 sudo apt update
 sudo apt upgrade
+sync
 sudo raspi-config
+sync
 sudo reboot
 ```
 
@@ -31,7 +33,7 @@ then install the packages needed for the webserver
 
 ```bash
 sudo apt install nginx
-sudo apt install letsencrypt
+sudo apt install certbot # for letsencrypt
 sudo apt install php-fpm
 ```
 
