@@ -15,8 +15,18 @@ The new webserver will run in an lxc container running debian trixie (13) also 6
 
 ### Preparing the debian lxc container
 
-Create an LXC container running debian 13 (trixie).
-Update it with the latest and greatest patches, give it a host name, create your user login account, and enable ssh.
+Create an LXC container running debian 13 (trixie). Do rememebr the PW upu used for this containe, you need it to login. (Same is thru when configuraing a new RPi, containers are no different)
+
+### add your user account
+
+For the LXC container, you are logged in as root. Add a pi user (for compatibility with my old rpi setups and id=1000), then add my other userID as <user> for regular use (with id=1001) and make is a sudo user.  It will ask for a password. than pate the system and reboot.
+
+```bash
+adduser pi --disabled-password
+adduser <user> --groups sudo
+```
+
+Update it with the latest and greatest patches, give it a host name, create your user login account, and enable ssh (wold be automatically enabled for an LXC container).
 
 ```bash
 sudo apt update
