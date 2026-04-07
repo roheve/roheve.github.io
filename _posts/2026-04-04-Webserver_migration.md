@@ -11,7 +11,7 @@ My old RPi, servering my webserver stil runs on the old raspi-os based on debian
 Time to upgrade to the latest debian version, so it receives os updates again.
 
 I ran my webserver on the rpi3 in 64 bit mode (I also publish some of my sites as a tor onion service, because I can).
-Then new webserver wil run in an lxc container running debian trixie (13) also 64 bit
+The new webserver will run in an lxc container running debian trixie (13) also 64 bit
 
 ### Preparing the debian lxc container
 
@@ -40,7 +40,7 @@ sudo apt install certbot
 
 ### install tor if you also run onion services for fun
 
-See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/ "torproject site") on the tor site for debian based systems.
+See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/#linux "torproject site") on the tor site for debian based systems.
 The short version is to add the tor project repository to your sources list and install the tor package
 
 ```bash
