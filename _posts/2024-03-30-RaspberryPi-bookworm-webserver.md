@@ -1,24 +1,20 @@
 ---
-title: RaspberryPi bookworm webserver
+title: bookworm webserver
 
 date: 2024-03-30 12:00:00 -0200
 categories: [rpi]
 tags: [rpi, bookworm, webserver, nginx, php, letsencrypt]
 ---
-## RPi with bookworm as a webserver
+## debian with trixi as a webserver
 
 My old RPi, servering my webserver stil runs on the old raspi-os based on debian 10.
 Time to upgrade to the lates os version that is still spported for some time.
 
-As I run my webserver on a rpi3 in 64 bit mode (because of also running a tor onion service for some of my sites). Then new webserver rpi shoudl also run thjat on 64 bit.
+As I run my webserver on a rpi3 in 64 bit mode (because of also running a tor onion service for some of my sites). Then new webserver wil rnin an lxc container running debian trixi (13) also 64 bit
 
-For now i use a spare rpi2 rev 1.1 (that is the last rpi version that does not support 64-bit) to find out what i need to install. I now finally document what I did the last few times for my webserver, running nginx, php-fmt, letsencrypt and tor.
+### Preparing the debian lxc container
 
-While doing that, my webserer on the rpi3 stays operational.
-
-### Preparing the rpi2
-
-Prepare an SD card with the latest raspi-os 32 bit version and the lite version, as this will be a headless deployment, and update it with the latest packages, give it a host name, a login account and enable ssh.
+Create an LXC container running debian 13 (trixie Install an image to thePrepare an SD card with the latest raspi-os 32 bit version and the lite version, as this will be a headless deployment, and update it with the latest packages, give it a host name, a login account and enable ssh.
 
 ```bash
 sudo apt update
@@ -37,8 +33,59 @@ sudo apt install certbot # for letsencrypt
 sudo apt install php-fpm
 ```
 
-This will install nginx 1.22 with php version 8.2 from the os repository, good enough for now.
+### install tor if you als run onion services for fun
 
-(to be continued...)
+see the instriction on the tor site for debian based systems. The short version is to add the tor project repository to your sources list and install the tor package
 
+```bash
+sudo vim /etc/apt/sources.list.d/tor.sources
+sudo apt update
+sudo apt install gnupg
+wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | sudo tee /usr/share/keyrings/deb.torproject.org-keyring.gpg >/dev/null
+sudo apt update
+sudo apt install tor deb.torproject.org-keyring
+```
+
+This will install nginx and php from the os repository, good enough for now.
+optionaly, als install the tor service (optional).
+
+## restore your webserver configuration and site files
+
+To restore the webserver from the backup files, copy the nginx configuration and the php configuration, as well as the web files to the new LXC container (or a new pi). Including the letsencrypt configuration and certificates.
+
+Make sure your LCX debian installation has the same accounts with the same user IDs and group IDs as in your old machine (that makes things easier). If not you need to adjust some folder and file ownership after the restore
+
+```bash
+cd ~
+scp <user>@192.168.999.999:/home/<user>/mywebserver_<date>_* .
+```
+
+make sure you are at ~
+Adjust the name of your backup files in the restore command below
+
+```bash
+cd ~
+sudo tar xpf mywebserver_2026-04-04_nginxconfig.tar.gz
+sudo tar xpf mywebserver_2026-04-04_sitecontent.tar.gz
+sudo tar xpf mywebserver_2026-04-04_certificate.tar.gz
+sudo tar xpf mywebserver_2026-04-04_onion.tar.gz
+sudo tar xpf mywebserver_2026-04-04_request_cer.tar.gz
+```
+
+If the php version is different (likely) maken sure to edit the /etc/nginx/nginx.conf to set the upstream php socket to the right one. I made it point to /run/php/php.sock (no version number) and the php 8 I use already created that socket.
+
+```bash
+sudo systemctl restart nginx.service
+```
+
+As my onion install used a different userID and groupID, I need to adjust the ownership of the web files and the nginx configuration files to match the new user and group IDs on the new machine.
+
+```bash
+sudo chown debian-tor:debian-tor /var/run/tor/. -R
+sudo systemctl restart tord.service
+```
+
+You als need to make sure requests from the internet reach your new server. I needed to update the IPv4 port forwarding setting on my homerouter and something similiar for IPv6 (you might also need to change the IPv6 DNS settings for your sites unless their IPv6 IP stays the same).
+
+Now test if everything still works.
 ...
