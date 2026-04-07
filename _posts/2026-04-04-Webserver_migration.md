@@ -38,7 +38,9 @@ sync
 sudo reboot
 ```
 
-Install the packages needed for the webserver
+### Install the packages needed for the webserver
+
+login as your regular user and install nginx, php and certbot for letsencrypt certificates
 
 ```bash
 sudo apt install nginx
@@ -49,18 +51,18 @@ sudo apt install certbot
 ```
 
 This will install nginx and php from the os repository.
-Optionally, also install the tor service.
 
 ### install tor if you also run onion services for fun
 
-See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/#linux "torproject site") on the tor site for debian based systems.
-The short version is to add the tor project repository to your sources list and install the tor package
+This is optional. Only if you want to run onion services. See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/#linux "torproject site") on the tor site for debian based systems.
+
+The short version is to add the tor project repository to your sources list and install tor.
 
 ```bash
 sudo apt update
 sudo apt install gnupg
 #
-# copy and adapt the snippet on the torproject website for debian based systems (and save the file)
+# copy and adapt the snippet on the torproject website for debian based systems (and save the file).
 sudo vim /etc/apt/sources.list.d/tor.sources
 #
 # get the initial signing key
