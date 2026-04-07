@@ -6,18 +6,19 @@ tags: [ardiuno, vscode]
 ---
 ## Using VScode for Arduino sketches
 
-My steps to sdtart using VScode for ardiuno sketches, after I reinstalled my PC.
+My steps to start using VScode for ardiuno sketches, after I reinstalled my PC.
 
-My PC at home (for personal use, not my work laptop) is running ubuntu linux and now with a clean install of 22.04.2 LTS. I started with an install of vscode from the repository (which is a snap package) and added some of my regular used extentions.
+My PC at home (for personal use, not my work laptop) is running ubuntu linux and now with a clean install of 24.04 LTS.
+I started with an install of vscode from the repository (which is a snap package) and added some of my regular used extentions.
 
 Because I did not wanted to invent the wheel again, I found [instructions](https://www.circuitstate.com/tutorials/how-to-use-vs-code-for-creating-and-uploading-arduino-sketches/ "it is not that old"), some of which I already did, and some new pointers.
 
-but first, make sure git is operational
+But first, make sure git is operational
 
 ``` sh
 sudo apt install git
-git config --global user.name "my"
-git config --global user.email "me@roheve.nl
+git config --global user.name "me"
+git config --global user.email "me@example.org"
 ```
 
 Then install vscode.
@@ -26,7 +27,7 @@ Then install vscode.
 sudo snap install code
 ```
 
-After it is installed start it and add the arduino extention (which brings the arduino-cli).
+After it was installed I started vscode and add the arduino extention (which also brings the arduino-cli).
 As I want to use it for the [LilyGO T-display-S3](https://github.com/Xinyuan-LilyGO/T-Display-S3) board. I added the board URL for that. The libraries for Expresiff where downloaded, but they where not recognized, so they need to be added.
 
 To use the arduino-cli that is integrated in the vscode extention more easy (for debugging my configuration), I added the following alias (I did not want to fiddle with the path). I used locate to find where it was hidden (somewhere in the .vscode folder). Note that it has a hardcoded version, that will likely change.
@@ -37,11 +38,9 @@ alias arduino-cli="${HOME}/.vscode/extensions/vsciot-vscode.vscode-arduino-0.6.0
 
 Now commands like 'arduino-cli config dump' will work as in the documentation, to explore more functionality. I did not want a separate install, as that would make troubleshooting worse
 
-After som experimentation, I found out that the arduino extention is not really supported anymore by microsoft, but it is forked by the community and still available. But it is not as usable as the old arduino IDE 1.8.
-
 ## Conclusion (two years later)
 
-Because the ardino extention for vscode is not wel supported of developemd anymore (it seems), I stopped trying to use it with vscode.
+After some experimentation (and months later, as other things got in the way), I concluded that the arduino extention is not really supported anymore by microsoft. It was forked by the community and still available, but I did not seen much progress. It is not as usable as the old arduino IDE 1.8.
 
-I switched to PlatformIO in vscode, that worked much better, with beter documentation on how to get it to work.
+I stopped trying to use the ardino extention with vscode and switched to PlatformIO extenton in vscode. That worked much better, and has    documentation on how to get it to work.
 ...

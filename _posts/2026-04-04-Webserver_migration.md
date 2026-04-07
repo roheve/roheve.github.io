@@ -2,8 +2,8 @@
 title: webserver migration (debian 10 to 13)
 
 date: 2026-04-04 12:00:00 -0200
-categories: [rpi]
-tags: [rpi, lxc, trixie, webserver, nginx, php, letsencrypt]
+categories: [website]
+tags: [debian, trixie, webserver, lxc, nginx, php, letsencrypt]
 ---
 ## debian with trixie as a webserver
 
@@ -38,22 +38,27 @@ sudo apt install php-fpm
 sudo apt install certbot
 ```
 
+This will install nginx and php from the os repository.
+Optionally, also install the tor service.
+
 ### install tor if you also run onion services for fun
 
 See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/#linux "torproject site") on the tor site for debian based systems.
 The short version is to add the tor project repository to your sources list and install the tor package
 
 ```bash
-sudo vim /etc/apt/sources.list.d/tor.sources
 sudo apt update
 sudo apt install gnupg
+#
+# copy and adapt the snippet on the torproject website for debian based systems (and save the file)
+sudo vim /etc/apt/sources.list.d/tor.sources
+#
+# get the initial signing key
 wget -qO- https://deb.torproject.org/torproject.org/A3C4F0F979CAA22CDBA8F512EE8CBC9E886DDD89.asc | gpg --dearmor | sudo tee /usr/share/keyrings/deb.torproject.org-keyring.gpg >/dev/null
+# install tor
 sudo apt update
 sudo apt install tor deb.torproject.org-keyring
 ```
-
-This will install nginx and php from the os repository, good enough for now.
-optionaly, als install the tor service (optional).
 
 ## restore your webserver configuration and site files
 
