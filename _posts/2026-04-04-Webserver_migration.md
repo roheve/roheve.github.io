@@ -1,41 +1,47 @@
 ---
 title: bookworm webserver
 
-date: 2024-03-30 12:00:00 -0200
+date: 2026-04-04 12:00:00 -0200
 categories: [rpi]
-tags: [rpi, bookworm, webserver, nginx, php, letsencrypt]
+tags: [rpi, lxc, trixie, webserver, nginx, php, letsencrypt]
 ---
-## debian with trixi as a webserver
+## debian with trixie as a webserver
 
 My old RPi, servering my webserver stil runs on the old raspi-os based on debian 10.
 Time to upgrade to the lates os version that is still spported for some time.
 
-As I run my webserver on a rpi3 in 64 bit mode (because of also running a tor onion service for some of my sites). Then new webserver wil rnin an lxc container running debian trixi (13) also 64 bit
+As I run my webserver on a rpi3 in 64 bit mode (because of also running a tor onion service for some of my sites).
+Then new webserver wil run in an lxc container running debian trixie (13) also 64 bit
 
 ### Preparing the debian lxc container
 
-Create an LXC container running debian 13 (trixie Install an image to thePrepare an SD card with the latest raspi-os 32 bit version and the lite version, as this will be a headless deployment, and update it with the latest packages, give it a host name, a login account and enable ssh.
+Create an LXC container running debian 13 (trixie).
+Uopdate it with the latses and greates patches give it a host name, create your use login account and enable ssh.
 
 ```bash
 sudo apt update
 sudo apt upgrade
-sync
-sudo raspi-config
+#
+sudo apt install vim
+#
 sync
 sudo reboot
 ```
 
-then install the packages needed for the webserver
+Install the packages needed for the webserver
 
 ```bash
 sudo apt install nginx
-sudo apt install certbot # for letsencrypt
 sudo apt install php-fpm
+#
+# for letsencrypt certificates
+sudo apt install certbot
 ```
 
-### install tor if you als run onion services for fun
+### install tor if you also run onion services for fun
 
-see the instriction on the tor site for debian based systems. The short version is to add the tor project repository to your sources list and install the tor package
+See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/ "torproject site") on the tor site for debian based systems. 
+The short version is to add the tor project repository to your sources list and install the tor package
 
 ```bash
 sudo vim /etc/apt/sources.list.d/tor.sources

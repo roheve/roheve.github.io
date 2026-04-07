@@ -37,6 +37,11 @@ alias arduino-cli="${HOME}/.vscode/extensions/vsciot-vscode.vscode-arduino-0.6.0
 
 Now commands like 'arduino-cli config dump' will work as in the documentation, to explore more functionality. I did not want a separate install, as that would make troubleshooting worse
 
-to be continued...
+After som experimentation, I found out that the arduino extention is not really supported anymore by microsoft, but it is forked by the community and still available. But it is not as usable as the old arduino IDE 1.8.
 
+## Conclusion (two years later)
+
+Because the ardino extention for vscode is not wel supported of developemd anymore (it seems), I stopped trying to use it with vscode.
+
+I switched to PlatformIO in vscode, that worked much better, with beter documentation on how to get it to work.
 ...
