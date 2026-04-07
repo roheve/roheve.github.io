@@ -10,8 +10,4 @@ tags: [ardiuno, esp32, ESP32-C3FH4]
 Some time ago I found a nice looking esp32 board with 25 addressable RGB leds on it. As usual with that kind of boards, there was almost no documentation, but a quick internet search landed my on a blog with [some documentation](https://dev.to/andypiper/bringing-the-bling-with-micropython-hn1 "nice reversing") and a link to a [github repo](https://github.com/01Space/ESP32-C3FH4-RGB "01Space").
 
 to be continued...
-
-
-
-
 ...
