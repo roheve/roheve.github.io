@@ -40,7 +40,7 @@ sudo apt install certbot
 
 ### install tor if you also run onion services for fun
 
-See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/ "torproject site") on the tor site for debian based systems. 
+See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/ "torproject site") on the tor site for debian based systems.
 The short version is to add the tor project repository to your sources list and install the tor package
 
 ```bash
