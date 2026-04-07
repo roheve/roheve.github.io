@@ -8,7 +8,7 @@ tags: [ardiuno, vscode]
 
 My steps to start using VScode for ardiuno sketches, after I reinstalled my PC.
 
-My PC at home (for personal use, not my work laptop) is running ubuntu linux and now with a clean install of 24.04 LTS. 
+My PC at home (for personal use, not my work laptop) is running ubuntu linux and now with a clean install of 24.04 LTS.
 I started with an install of vscode from the repository (which is a snap package) and added some of my regular used extentions.
 
 Because I did not wanted to invent the wheel again, I found [instructions](https://www.circuitstate.com/tutorials/how-to-use-vs-code-for-creating-and-uploading-arduino-sketches/ "it is not that old"), some of which I already did, and some new pointers.
@@ -18,7 +18,7 @@ But first, make sure git is operational
 ``` sh
 sudo apt install git
 git config --global user.name "me"
-git config --global user.email "me@roheve.nl"
+git config --global user.email "me@example.org"
 ```
 
 Then install vscode.

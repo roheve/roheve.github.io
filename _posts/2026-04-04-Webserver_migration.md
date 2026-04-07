@@ -2,7 +2,7 @@
 title: webserver migration (debian 10 to 13)
 
 date: 2026-04-04 12:00:00 -0200
-categories: [rpi]
+categories: [website]
 tags: [debian, trixie, webserver, lxc, nginx, php, letsencrypt]
 ---
 ## debian with trixie as a webserver
