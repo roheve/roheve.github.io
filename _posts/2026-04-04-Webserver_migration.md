@@ -25,6 +25,9 @@ For the LXC container, you are logged in as root. Add a pi user (for compatibili
 adduser pi --disabled-password
 adduser <user> --groups sudo
 ```
+Make sure your LCX debian installation has the same accounts with the same user IDs and group IDs as in your old machine (that makes things easier). If not you need to adjust some folder and file ownership after the restore.
+
+### Update it with the latest packages
 
 Update it with the latest and greatest patches, give it a host name, create your user login account, and enable ssh (wold be automatically enabled for an LXC container).
 
@@ -72,16 +75,22 @@ sudo apt update
 sudo apt install tor deb.torproject.org-keyring
 ```
 
-### Restore your webserver configuration and site files
+## Restore your webserver configuration and site files
 
 To restore the webserver from the backup files, copy the nginx configuration and the php configuration, as well as the web files to the new LXC container (or a new pi). Including the letsencrypt configuration and certificates.
+
+Start in the home folder of your user account.
+
+### Copy the backup files to your new server
+
+Get the files from where you have stored them (usually another computer)
 
 ```bash
 cd ~
 scp <user>@192.168.999.999:/home/<user>/mywebserver_<date>_* .
 ```
 
-Make sure your LCX debian installation has the same accounts with the same user IDs and group IDs as in your old machine (that makes things easier). If not you need to adjust some folder and file ownership after the restore.
+### Unpack your backup archives
 
 Adjust the name of your backup files in the restore command below.
 
@@ -94,6 +103,8 @@ sudo tar xpf mywebserver_2026-04-04_onion.tar.gz
 sudo tar xpf mywebserver_2026-04-04_request_cer.tar.gz
 ```
 
+### Make some adjustments
+
 If the php version is different (likely) maken sure to edit the /etc/nginx/nginx.conf to set the upstream php socket to the right one. I made it point to /run/php/php.sock (no version number) and the php 8 I use already created that socket.
 Create the dhparam file for nginx (it is not copied in the backup, but used in the nginx configuration).
 
@@ -102,6 +113,8 @@ sudo openssl dhparam -out /etc/ssl/private/dh2048_pem 2048
 sudo systemctl restart nginx.service
 ```
 
+### Onion sites
+
 As my onion install used a different userID and groupID, I need to adjust the ownership of the web files and the nginx configuration files to match the new user and group IDs on the new machine.
 
 ```bash
@@ -109,7 +122,9 @@ sudo chown debian-tor:debian-tor /var/run/tor -R
 sudo systemctl restart tor.service
 ```
 
+## Test everyting
+
 You als need to make sure requests from the internet reach your new server. I needed to update the IPv4 port forwarding setting on my homerouter and something similiar for IPv6 (you might also need to change the IPv6 DNS settings for your sites unless their IPv6 IP stays the same).
 
-Now test if everything still works.
+Check if everything still works.
 ...
