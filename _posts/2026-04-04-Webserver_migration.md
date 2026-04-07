@@ -17,7 +17,7 @@ The new webserver will run in an lxc container running debian trixie (13) also 6
 
 Create an LXC container running debian 13 (trixie). Do rememebr the PW upu used for this containe, you need it to login. (Same is thru when configuraing a new RPi, containers are no different)
 
-### add your user account
+### Create your user account
 
 For the LXC container, you are logged in as root. Add a pi user (for compatibility with my old rpi setups and id=1000), then add my other userID as <user> for regular use (with id=1001) and make is a sudo user.  It will ask for a password. than pate the system and reboot.
 
@@ -52,7 +52,7 @@ sudo apt install certbot
 
 This will install nginx and php from the os repository.
 
-### install tor if you also run onion services for fun
+### Install tor if you also run onion services for fun
 
 This is optional. Only if you want to run onion services. See the [instruction](https://support.torproject.org/little-t-tor/getting-started/installing/#linux "torproject site") on the tor site for debian based systems.
 
@@ -72,19 +72,18 @@ sudo apt update
 sudo apt install tor deb.torproject.org-keyring
 ```
 
-## restore your webserver configuration and site files
+### Restore your webserver configuration and site files
 
 To restore the webserver from the backup files, copy the nginx configuration and the php configuration, as well as the web files to the new LXC container (or a new pi). Including the letsencrypt configuration and certificates.
-
-Make sure your LCX debian installation has the same accounts with the same user IDs and group IDs as in your old machine (that makes things easier). If not you need to adjust some folder and file ownership after the restore
 
 ```bash
 cd ~
 scp <user>@192.168.999.999:/home/<user>/mywebserver_<date>_* .
 ```
 
-make sure you are at ~
-Adjust the name of your backup files in the restore command below
+Make sure your LCX debian installation has the same accounts with the same user IDs and group IDs as in your old machine (that makes things easier). If not you need to adjust some folder and file ownership after the restore.
+
+Adjust the name of your backup files in the restore command below.
 
 ```bash
 cd ~
